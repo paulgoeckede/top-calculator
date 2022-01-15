@@ -34,7 +34,7 @@ function operate(num1, num2, operator){
     }
 }
 
-const addButton = document.querySelector(".add");
+/* const addButton = document.querySelector(".add");
 const subButton = document.querySelector(".subtract");
 const mulButton = document.querySelector(".multiply");
 const divButton = document.querySelector(".divide");
@@ -58,4 +58,4 @@ divButton.addEventListener("click", () => {
     const num1 = prompt("Enter first numer", "");
     const num2 = prompt("Enter second numer", "");
     const result = alert(operate(num1, num2, "divide"));
-})
+}) */

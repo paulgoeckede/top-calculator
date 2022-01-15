@@ -1,0 +1,75 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  height: 420px;
+  width: 280px;
+  background-color: lightblue;
+  border: 3px solid grey;
+  border-radius: 5%;
+  overflow: hidden;
+}
+
+.display {
+  height: 20%;
+  background-color: lightsalmon;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.keypad {
+  height: 70%;
+  background-color: lightpink;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.clearButton {
+  height: 10%;
+}
+
+.displayField {
+  height: 60%;
+  width: 80%;
+  background-color: grey;
+  border-radius: 3%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.displayField p {
+  margin-right: 10px;
+  font-size: 24px;
+}
+
+.key {
+  display: inline-block;
+  text-decoration: lightgrey;
+  font-size: 16px;
+  height: 40px;
+  width: 40px;
+}
+
+.clearButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#keyClear {
+  height: 30px;
+}
