@@ -1,3 +1,5 @@
+/* Current problem: Float numbers! */
+
 let firstNum = 0;
 let secondNum = 0;
 let operator = "";
@@ -34,9 +36,15 @@ key1.addEventListener("click", () => {
             display.textContent = "";
             operator = "";
             lastInput = "";
+        } else if (lastInput === "float"){
+            display.textContent+= "1";
+            lastInput = "key-float";
+        } else if (lastInput === "key-float"){
+            display.textContent += "";
+        } else {
+            display.textContent += "1";
+            lastInput = "key";
         }
-        display.textContent += "1";
-        lastInput = "key";
     }
 });
 
@@ -195,12 +203,12 @@ keyFloat.addEventListener("click", () => {
             secondNum = 0;
             display.textContent = "0.";
             operator = "";
-            lastInput = "";
+            lastInput = "float";
             
         } else {
             display.textContent += ".";
         }
-        lastInput = "key";
+        lastInput = "float";
     }
 });
 
