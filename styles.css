@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Esteban&family=Press+Start+2P&display=swap");
+
 * {
   margin: 0;
   padding: 0;
@@ -15,7 +17,7 @@ body {
 .container {
   height: 420px;
   width: 280px;
-  background-color: lightblue;
+  background-color: #c1b2ab;
   border: 3px solid grey;
   border-radius: 5%;
   overflow: hidden;
@@ -23,23 +25,40 @@ body {
 
 .display {
   height: 20%;
-  background-color: lightsalmon;
   display: flex;
   justify-content: center;
   align-items: center;
+  font-family: "Press Start 2P", cursive;
+  font-size: 6px;
 }
 
 .keypad {
   height: 70%;
-  background-color: lightpink;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+  font-family: "Esteban", serif;
+  font-weight: 700;
+  border-top: 3px solid grey;
+}
+
+.row1,
+.row2,
+.row3,
+.row4 {
+  width: 70%;
+  display: flex;
+  justify-content: space-between;
 }
 
 .clearButton {
   height: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Esteban", serif;
+  font-weight: 700;
 }
 
 .displayField {
@@ -59,18 +78,36 @@ body {
 
 .key {
   display: inline-block;
-  text-decoration: lightgrey;
+  color: #f8f8f8;
+  border: 2px solid #adf7b6;
   font-size: 16px;
   height: 40px;
   width: 40px;
+  background-color: #353238;
+  transition: transform 0.1s;
 }
 
-.clearButton {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.key:hover {
+  cursor: pointer;
+}
+
+#keyEquals {
+  background-color: #bf4e30;
 }
 
 #keyClear {
   height: 30px;
+  width: 30%;
+}
+
+#keyAdd,
+#keySub,
+#keyMul,
+#keyDiv,
+#keyFloat {
+  background-color: #57886c;
+}
+
+.pressed {
+  transform: scale(0.9);
 }

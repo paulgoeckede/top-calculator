@@ -104,7 +104,7 @@ document.addEventListener("keydown", (e) => {
 })
 
 function keyOne(){
-    if(display.textContent.length>=15 && display.textContent !== "Universe crashed!"){
+    if(display.textContent.length>=8 && display.textContent !== "Universe crashed!"){
         display.textContent = "Too many numbers!";
     } else {
         if(lastInput === "equals"){
@@ -118,10 +118,11 @@ function keyOne(){
             lastInput = "key";
         }
     }
+    key1.classList.add("pressed");
 }
 
 function keyTwo(){
-    if(display.textContent.length>=15 && display.textContent !== "Universe crashed!"){
+    if(display.textContent.length>=8 && display.textContent !== "Universe crashed!"){
         display.textContent = "Too many numbers!";
     } else {
         if(lastInput === "equals"){
@@ -134,10 +135,11 @@ function keyTwo(){
         display.textContent += "2";
         lastInput = "key";
     }
+    key2.classList.add("pressed");
 }
 
 function keyThree(){
-    if(display.textContent.length>=15 && display.textContent !== "Universe crashed!"){
+    if(display.textContent.length>=8 && display.textContent !== "Universe crashed!"){
         display.textContent = "Too many numbers!";
     } else {
         if(lastInput === "equals"){
@@ -150,10 +152,11 @@ function keyThree(){
         display.textContent += "3";
         lastInput = "key";
     }
+    key3.classList.add("pressed");
 }
 
 function keyFour(){
-    if(display.textContent.length>=15 && display.textContent !== "Universe crashed!"){
+    if(display.textContent.length>=8 && display.textContent !== "Universe crashed!"){
         display.textContent = "Too many numbers!";
     } else {
         if(lastInput === "equals"){
@@ -166,10 +169,11 @@ function keyFour(){
         display.textContent += "4";
         lastInput = "key";
     }
+    key4.classList.add("pressed");
 }
 
 function keyFive(){
-    if(display.textContent.length>=15 && display.textContent !== "Universe crashed!"){
+    if(display.textContent.length>=8 && display.textContent !== "Universe crashed!"){
         display.textContent = "Too many numbers!";
     } else {
         if(lastInput === "equals"){
@@ -182,10 +186,11 @@ function keyFive(){
         display.textContent += "5";
         lastInput = "key";
     }
+    key5.classList.add("pressed");
 }
 
 function keySix(){
-    if(display.textContent.length>=15 && display.textContent !== "Universe crashed!"){
+    if(display.textContent.length>=8 && display.textContent !== "Universe crashed!"){
         display.textContent = "Too many numbers!";
     } else {
         if(lastInput === "equals"){
@@ -198,10 +203,11 @@ function keySix(){
         display.textContent += "6";
         lastInput = "key";
     }
+    key6.classList.add("pressed");
 }
 
 function keySeven(){
-    if(display.textContent.length>=15 && display.textContent !== "Universe crashed!"){
+    if(display.textContent.length>=8 && display.textContent !== "Universe crashed!"){
         display.textContent = "Too many numbers!";
     } else {
         if(lastInput === "equals"){
@@ -214,10 +220,11 @@ function keySeven(){
         display.textContent += "7";
         lastInput = "key";
     }
+    key7.classList.add("pressed");
 }
 
 function keyEight(){
-    if(display.textContent.length>=15 && display.textContent !== "Universe crashed!"){
+    if(display.textContent.length>=8 && display.textContent !== "Universe crashed!"){
         display.textContent = "Too many numbers!";
     } else {
         if(lastInput === "equals"){
@@ -230,10 +237,11 @@ function keyEight(){
         display.textContent += "8";
         lastInput = "key";
     }
+    key8.classList.add("pressed");
 }
 
 function keyNine(){
-    if(display.textContent.length>=15 && display.textContent !== "Universe crashed!"){
+    if(display.textContent.length>=8 && display.textContent !== "Universe crashed!"){
         display.textContent = "Too many numbers!";
     } else {
         if(lastInput === "equals"){
@@ -246,10 +254,11 @@ function keyNine(){
         display.textContent += "9";
         lastInput = "key";
     }
+    key9.classList.add("pressed");
 }
 
 function keyZero(){
-    if(display.textContent.length>=15 && display.textContent !== "Universe crashed!"){
+    if(display.textContent.length>=8 && display.textContent !== "Universe crashed!"){
         display.textContent = "Too many numbers!";
     } else {
         if(lastInput === "equals"){
@@ -262,10 +271,11 @@ function keyZero(){
         display.textContent += "0";
         lastInput = "key";
     }
+    key0.classList.add("pressed");
 }
 
 function keyFloatFunc(){
-    if(display.textContent.length>=15 && display.textContent !== "Universe crashed!"){
+    if(display.textContent.length>=8 && display.textContent !== "Universe crashed!"){
         display.textContent = "Too many numbers!";
     } else if(display.textContent.includes(".") && lastInput !== "equals"){
         display.textContent += "";
@@ -282,34 +292,47 @@ function keyFloatFunc(){
         }
         lastInput = "float";
     }
+    keyFloat.classList.add("pressed");
 }
 
 function keyAddFunc(){
-    firstNum = parseFloat(display.textContent);
+    if(display.textContent!==""){
+        firstNum = parseFloat(display.textContent);
+    }
     display.textContent = "";
     operator = "add";
     lastInput = "operator";
+    keyAdd.classList.add("pressed");
 }
 
 function keySubFunc(){
-    firstNum = parseFloat(display.textContent);
+    if(display.textContent!==""){
+        firstNum = parseFloat(display.textContent);
+    }
     display.textContent = "";
     operator = "subtract";
     lastInput = "operator";
+    keySub.classList.add("pressed");
 }
 
 function keyMulFunc(){
-    firstNum = parseFloat(display.textContent);
+    if(display.textContent!==""){
+        firstNum = parseFloat(display.textContent);
+    }
     display.textContent = "";
     operator = "multiply";
     lastInput = "operator";
+    keyMul.classList.add("pressed");
 }
 
 function keyDivFunc(){
-    firstNum = parseFloat(display.textContent);
+    if(display.textContent!==""){
+        firstNum = parseFloat(display.textContent);
+    }
     display.textContent = "";
     operator = "divide";
     lastInput = "operator";
+    keyDiv.classList.add("pressed");
 }
 
 function keyClearFunc(){
@@ -318,6 +341,7 @@ function keyClearFunc(){
     display.textContent = "";
     operator = "";
     lastInput = "";
+    keyClear.classList.add("pressed");
 }
 
 function keyEqualsFunc(){
@@ -332,6 +356,7 @@ function keyEqualsFunc(){
             lastInput = "equals";
         }
     }
+        keyEquals.classList.add("pressed");
 }
 
 function keyBackspaceFunc(){
@@ -392,4 +417,12 @@ function operate(num1, num2, operator){
     }
 }
 
- 
+function removeTransition(e){
+    if(e.propertyName !== "transform") return;
+    this.classList.remove("pressed");
+}
+
+const keys = document.querySelectorAll(".key");
+keys.forEach((key) => {
+    key.addEventListener("transitionend", removeTransition);
+});
