@@ -374,7 +374,23 @@ function keyAddFunc(){
 
 function keySubFunc(){
     if(display.textContent!==""){
-        firstNum = parseFloat(display.textContent);
+        if (firstNumCheck === false){
+            firstNum = parseFloat(display.textContent);
+            firstNumCheck = true;
+        } else {
+            if (operator !== ""){
+                if(lastInput !== "equals" && !isNaN(parseFloat(display.textContent))){
+                    secondNum = display.textContent;
+                    if(typeof operate(firstNum, secondNum, operator) === "string"){
+                        display.textContent = operate(firstNum, secondNum, operator);
+                    } else {
+                        display.textContent = parseFloat(operate(firstNum, secondNum, operator).toFixed(10));
+                        firstNum = display.textContent;
+                    }
+                    lastInput = "operator";
+                }
+            }
+        }
     }
     operator = "subtract";
     lastInput = "operator";
@@ -383,7 +399,23 @@ function keySubFunc(){
 
 function keyMulFunc(){
     if(display.textContent!==""){
-        firstNum = parseFloat(display.textContent);
+        if (firstNumCheck === false){
+            firstNum = parseFloat(display.textContent);
+            firstNumCheck = true;
+        } else {
+            if (operator !== ""){
+                if(lastInput !== "equals" && !isNaN(parseFloat(display.textContent))){
+                    secondNum = display.textContent;
+                    if(typeof operate(firstNum, secondNum, operator) === "string"){
+                        display.textContent = operate(firstNum, secondNum, operator);
+                    } else {
+                        display.textContent = parseFloat(operate(firstNum, secondNum, operator).toFixed(10));
+                        firstNum = display.textContent;
+                    }
+                    lastInput = "operator";
+                }
+            }
+        }
     }
     operator = "multiply";
     lastInput = "operator";
@@ -392,7 +424,23 @@ function keyMulFunc(){
 
 function keyDivFunc(){
     if(display.textContent!==""){
-        firstNum = parseFloat(display.textContent);
+        if (firstNumCheck === false){
+            firstNum = parseFloat(display.textContent);
+            firstNumCheck = true;
+        } else {
+            if (operator !== ""){
+                if(lastInput !== "equals" && !isNaN(parseFloat(display.textContent))){
+                    secondNum = display.textContent;
+                    if(typeof operate(firstNum, secondNum, operator) === "string"){
+                        display.textContent = operate(firstNum, secondNum, operator);
+                    } else {
+                        display.textContent = parseFloat(operate(firstNum, secondNum, operator).toFixed(10));
+                        firstNum = display.textContent;
+                    }
+                    lastInput = "operator";
+                }
+            }
+        }
     }
     operator = "divide";
     lastInput = "operator";
@@ -406,6 +454,7 @@ function keyClearFunc(){
     operator = "";
     lastInput = "";
     keyClear.classList.add("pressed");
+    firstNumCheck = false;
 }
 
 //equal button functionality, has to check if two numbers have been input and if so, calls the operate function to calculate and display the result
@@ -421,7 +470,8 @@ function keyEqualsFunc(){
             lastInput = "equals";
         }
     }
-        keyEquals.classList.add("pressed");
+    keyEquals.classList.add("pressed");
+    firstNumCheck = false;
 }
 
 //removes the last number from the string if backspace is pressed on keyboard
