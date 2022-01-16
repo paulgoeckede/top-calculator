@@ -26,16 +26,16 @@ const keyClear = document.querySelector("#keyClear");
 const display = document.querySelector("#displayFieldText");
 
 //This calls the functionality for each key whenever they are clicked
-key1.addEventListener("click", keyOne);
-key2.addEventListener("click", keyTwo);
-key3.addEventListener("click", keyThree);
-key4.addEventListener("click", keyFour);
-key5.addEventListener("click", keyFive);
-key6.addEventListener("click", keySix);
-key7.addEventListener("click", keySeven);
-key8.addEventListener("click", keyEight);
-key9.addEventListener("click", keyNine);
-key0.addEventListener("click", keyZero);
+key1.addEventListener("click", () => actionKey("1"));
+key2.addEventListener("click", () => actionKey("2"));
+key3.addEventListener("click", () => actionKey("3"));
+key4.addEventListener("click", () => actionKey("4"));
+key5.addEventListener("click", () => actionKey("5"));
+key6.addEventListener("click", () => actionKey("6"));
+key7.addEventListener("click", () => actionKey("7"));
+key8.addEventListener("click", () => actionKey("8"));
+key9.addEventListener("click", () => actionKey("9"));
+key0.addEventListener("click", () => actionKey("0"));
 keyFloat.addEventListener("click", keyFloatFunc);
 keyAdd.addEventListener("click", keyAddFunc);
 keySub.addEventListener("click", keySubFunc);
@@ -109,6 +109,31 @@ document.addEventListener("keydown", (e) => {
     }
 })
 
+function clearEverythingAfterEquals(input){
+    firstNum = 0;
+    secondNum = 0;
+    display.textContent = input;
+    operator = "";
+    lastInput = "";
+}
+
+function actionKey(input){
+    if(display.textContent.length>=8 && display.textContent !== "Universe crashed!"){
+        display.textContent = "Too many numbers!";
+    } else {
+        if(lastInput === "equals"){
+            clearEverythingAfterEquals(input);
+        } else if(lastInput === "operator") {
+            display.textContent = input;
+            lastInput = "key";
+        }else{
+            display.textContent += input;
+            lastInput = "key";
+        }
+    }
+    this.classList.add("pressed");
+}
+
 //functions keyOne to keyZero all do basically the same thing, check if the amount of string in the display is too much and if not, display and save the value
 
 function keyOne(){
@@ -116,11 +141,7 @@ function keyOne(){
         display.textContent = "Too many numbers!";
     } else {
         if(lastInput === "equals"){
-            firstNum = 0;
-            secondNum = 0;
-            display.textContent = "1";
-            operator = "";
-            lastInput = "";
+            clearEverythingAfterEquals("1");
         } else if(lastInput === "operator") {
             display.textContent = "1";
             lastInput = "key";
@@ -272,7 +293,7 @@ function keyEight(){
             display.textContent = "8";
             lastInput = "key";
         } else {
-            isplay.textContent += "8";
+            display.textContent += "8";
             lastInput = "key";
         }
     }
