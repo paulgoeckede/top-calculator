@@ -1,5 +1,3 @@
-/* Current problem: Float numbers! */
-
 let firstNum = 0;
 let secondNum = 0;
 let operator = "";
@@ -36,11 +34,6 @@ key1.addEventListener("click", () => {
             display.textContent = "";
             operator = "";
             lastInput = "";
-        } else if (lastInput === "float"){
-            display.textContent+= "1";
-            lastInput = "key-float";
-        } else if (lastInput === "key-float"){
-            display.textContent += "";
         } else {
             display.textContent += "1";
             lastInput = "key";
