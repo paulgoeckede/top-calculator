@@ -8,10 +8,26 @@
 
 body {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
   height: 100vh;
   background-color: #121212;
+  justify-content: space-between;
+}
+
+.content {
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer {
+  height: 5vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #f8f0e3;
+  font-size: 12px;
 }
 
 .container {
