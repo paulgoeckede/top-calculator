@@ -2,6 +2,7 @@ let firstNum = 0;
 let secondNum = 0;
 let operator = "";
 let lastInput;
+let firstNumCheck = false;
 
 //reference all the calculators buttons
 
@@ -117,10 +118,13 @@ function keyOne(){
         if(lastInput === "equals"){
             firstNum = 0;
             secondNum = 0;
-            display.textContent = "";
+            display.textContent = "1";
             operator = "";
             lastInput = "";
-        } else {
+        } else if(lastInput === "operator") {
+            display.textContent = "1";
+            lastInput = "key";
+        }else{
             display.textContent += "1";
             lastInput = "key";
         }
@@ -135,12 +139,16 @@ function keyTwo(){
         if(lastInput === "equals"){
             firstNum = 0;
             secondNum = 0;
-            display.textContent = "";
+            display.textContent = "2";
             operator = "";
             lastInput = "";
+        } else if(lastInput === "operator") {
+            display.textContent = "2";
+            lastInput = "key";
+        } else {
+            display.textContent += "2";
+            lastInput = "key";
         }
-        display.textContent += "2";
-        lastInput = "key";
     }
     key2.classList.add("pressed");
 }
@@ -152,12 +160,16 @@ function keyThree(){
         if(lastInput === "equals"){
             firstNum = 0;
             secondNum = 0;
-            display.textContent = "";
+            display.textContent = "3";
             operator = "";
             lastInput = "";
+        } else if(lastInput === "operator") {
+            display.textContent = "3";
+            lastInput = "key";
+        } else {
+            display.textContent += "3";
+            lastInput = "key";
         }
-        display.textContent += "3";
-        lastInput = "key";
     }
     key3.classList.add("pressed");
 }
@@ -169,12 +181,16 @@ function keyFour(){
         if(lastInput === "equals"){
             firstNum = 0;
             secondNum = 0;
-            display.textContent = "";
+            display.textContent = "4";
             operator = "";
             lastInput = "";
+        } else if(lastInput === "operator") {
+            display.textContent = "4";
+            lastInput = "key";
+        } else {
+            display.textContent += "4";
+            lastInput = "key";
         }
-        display.textContent += "4";
-        lastInput = "key";
     }
     key4.classList.add("pressed");
 }
@@ -186,12 +202,16 @@ function keyFive(){
         if(lastInput === "equals"){
             firstNum = 0;
             secondNum = 0;
-            display.textContent = "";
+            display.textContent = "5";
             operator = "";
             lastInput = "";
+        } else if(lastInput === "operator") {
+            display.textContent = "5";
+            lastInput = "key";
+        } else {
+            display.textContent += "5";
+            lastInput = "key";
         }
-        display.textContent += "5";
-        lastInput = "key";
     }
     key5.classList.add("pressed");
 }
@@ -203,12 +223,16 @@ function keySix(){
         if(lastInput === "equals"){
             firstNum = 0;
             secondNum = 0;
-            display.textContent = "";
+            display.textContent = "6";
             operator = "";
             lastInput = "";
-    }
-        display.textContent += "6";
-        lastInput = "key";
+        } else if(lastInput === "operator") {
+            display.textContent = "6";
+            lastInput = "key";
+        } else {
+            display.textContent += "6";
+            lastInput = "key";
+        }
     }
     key6.classList.add("pressed");
 }
@@ -220,12 +244,16 @@ function keySeven(){
         if(lastInput === "equals"){
             firstNum = 0;
             secondNum = 0;
-            display.textContent = "";
+            display.textContent = "7";
             operator = "";
             lastInput = "";
+        } else if(lastInput === "operator") {
+            display.textContent = "7";
+            lastInput = "key";
+        } else {
+            display.textContent += "7";
+            lastInput = "key";
         }
-        display.textContent += "7";
-        lastInput = "key";
     }
     key7.classList.add("pressed");
 }
@@ -237,12 +265,16 @@ function keyEight(){
         if(lastInput === "equals"){
             firstNum = 0;
             secondNum = 0;
-            display.textContent = "";
+            display.textContent = "8";
             operator = "";
             lastInput = "";
+        } else if(lastInput === "operator") {
+            display.textContent = "8";
+            lastInput = "key";
+        } else {
+            isplay.textContent += "8";
+            lastInput = "key";
         }
-        display.textContent += "8";
-        lastInput = "key";
     }
     key8.classList.add("pressed");
 }
@@ -254,12 +286,16 @@ function keyNine(){
         if(lastInput === "equals"){
             firstNum = 0;
             secondNum = 0;
-            display.textContent = "";
+            display.textContent = "9";
             operator = "";
             lastInput = "";
+        } else if(lastInput === "operator") {
+            display.textContent = "9";
+            lastInput = "key";
+        } else {
+            display.textContent += "9";
+            lastInput = "key";
         }
-        display.textContent += "9";
-        lastInput = "key";
     }
     key9.classList.add("pressed");
 }
@@ -271,12 +307,16 @@ function keyZero(){
         if(lastInput === "equals"){
             firstNum = 0;
             secondNum = 0;
-            display.textContent = "";
+            display.textContent = "0";
             operator = "";
             lastInput = "";
+        } else if(lastInput === "operator") {
+            display.textContent = "0";
+            lastInput = "key";
+        } else {
+            display.textContent += "0";
+            lastInput = "key";
         }
-        display.textContent += "0";
-        lastInput = "key";
     }
     key0.classList.add("pressed");
 }
@@ -295,7 +335,10 @@ function keyFloatFunc(){
             operator = "";
             lastInput = "float";
             
-        } else {
+        } else if(lastInput === "operator") {
+            display.textContent = "0.";
+            lastInput = "float";
+        } else{
             display.textContent += ".";
         }
         lastInput = "float";
@@ -306,9 +349,24 @@ function keyFloatFunc(){
 //Next 4 functions add functionality for the operator buttons
 function keyAddFunc(){
     if(display.textContent!==""){
-        firstNum = parseFloat(display.textContent);
+        if(firstNumCheck === false){
+            firstNum = parseFloat(display.textContent);
+            firstNumCheck = true;
+        } else{
+            if (operator !== ""){
+                if(lastInput !== "equals" && !isNaN(parseFloat(display.textContent))){
+                    secondNum = display.textContent;
+                    if(typeof operate(firstNum, secondNum, operator) === "string"){
+                        display.textContent = operate(firstNum, secondNum, operator);
+                    } else {
+                        display.textContent = parseFloat(operate(firstNum, secondNum, operator).toFixed(10));
+                        firstNum = display.textContent;
+                    }
+                    lastInput = "operator";
+                }
+            }
+        }
     }
-    display.textContent = "";
     operator = "add";
     lastInput = "operator";
     keyAdd.classList.add("pressed");
@@ -318,7 +376,6 @@ function keySubFunc(){
     if(display.textContent!==""){
         firstNum = parseFloat(display.textContent);
     }
-    display.textContent = "";
     operator = "subtract";
     lastInput = "operator";
     keySub.classList.add("pressed");
@@ -328,7 +385,6 @@ function keyMulFunc(){
     if(display.textContent!==""){
         firstNum = parseFloat(display.textContent);
     }
-    display.textContent = "";
     operator = "multiply";
     lastInput = "operator";
     keyMul.classList.add("pressed");
@@ -338,7 +394,6 @@ function keyDivFunc(){
     if(display.textContent!==""){
         firstNum = parseFloat(display.textContent);
     }
-    display.textContent = "";
     operator = "divide";
     lastInput = "operator";
     keyDiv.classList.add("pressed");
@@ -356,7 +411,7 @@ function keyClearFunc(){
 //equal button functionality, has to check if two numbers have been input and if so, calls the operate function to calculate and display the result
 function keyEqualsFunc(){
     if (operator !== ""){
-        if(lastInput !== "equals"){
+        if(lastInput !== "equals" && !isNaN(parseFloat(display.textContent))){
             secondNum = display.textContent;
             if(typeof operate(firstNum, secondNum, operator) === "string"){
                 display.textContent = operate(firstNum, secondNum, operator);
