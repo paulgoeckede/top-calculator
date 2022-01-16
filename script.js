@@ -24,6 +24,7 @@ const keyEquals = document.querySelector("#keyEquals");
 const keyClear = document.querySelector("#keyClear");
 const display = document.querySelector("#displayFieldText");
 
+//This calls the functionality for each key whenever they are clicked
 key1.addEventListener("click", keyOne);
 key2.addEventListener("click", keyTwo);
 key3.addEventListener("click", keyThree);
@@ -42,6 +43,7 @@ keyDiv.addEventListener("click", keyDivFunc);
 keyClear.addEventListener("click", keyClearFunc);
 keyEquals.addEventListener("click", keyEqualsFunc);
 
+//This calls the functionality for each key whenever the corresponding key is pressed on the users keyboard (additional functionality for backspace, clear = Enter)
 document.addEventListener("keydown", (e) => {
     switch(e.key){
         case "1":
@@ -92,6 +94,9 @@ document.addEventListener("keydown", (e) => {
         case ".":
             keyFloatFunc();
             break;
+        case ",":
+            keyFloatFunc();
+            break;
         case "Escape":
             keyClearFunc();
             break;
@@ -102,6 +107,8 @@ document.addEventListener("keydown", (e) => {
             break;
     }
 })
+
+//functions keyOne to keyZero all do basically the same thing, check if the amount of string in the display is too much and if not, display and save the value
 
 function keyOne(){
     if(display.textContent.length>=8 && display.textContent !== "Universe crashed!"){
@@ -274,6 +281,7 @@ function keyZero(){
     key0.classList.add("pressed");
 }
 
+//Adds functionality for the float button, different because it has to check if there is already one decimal point in the displayed value;
 function keyFloatFunc(){
     if(display.textContent.length>=8 && display.textContent !== "Universe crashed!"){
         display.textContent = "Too many numbers!";
@@ -295,6 +303,7 @@ function keyFloatFunc(){
     keyFloat.classList.add("pressed");
 }
 
+//Next 4 functions add functionality for the operator buttons
 function keyAddFunc(){
     if(display.textContent!==""){
         firstNum = parseFloat(display.textContent);
@@ -344,6 +353,7 @@ function keyClearFunc(){
     keyClear.classList.add("pressed");
 }
 
+//equal button functionality, has to check if two numbers have been input and if so, calls the operate function to calculate and display the result
 function keyEqualsFunc(){
     if (operator !== ""){
         if(lastInput !== "equals"){
@@ -359,6 +369,7 @@ function keyEqualsFunc(){
         keyEquals.classList.add("pressed");
 }
 
+//removes the last number from the string if backspace is pressed on keyboard
 function keyBackspaceFunc(){
     if(display.textContent.length>=15 && display.textContent !== "Universe crashed!"){
         display.textContent = "Too many numbers!";
@@ -417,6 +428,7 @@ function operate(num1, num2, operator){
     }
 }
 
+//These next two functions are for the little pressdown animation that plays whenever a key is clicked or pressed
 function removeTransition(e){
     if(e.propertyName !== "transform") return;
     this.classList.remove("pressed");
