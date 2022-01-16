@@ -24,7 +24,86 @@ const keyEquals = document.querySelector("#keyEquals");
 const keyClear = document.querySelector("#keyClear");
 const display = document.querySelector("#displayFieldText");
 
-key1.addEventListener("click", () => {
+key1.addEventListener("click", keyOne);
+key2.addEventListener("click", keyTwo);
+key3.addEventListener("click", keyThree);
+key4.addEventListener("click", keyFour);
+key5.addEventListener("click", keyFive);
+key6.addEventListener("click", keySix);
+key7.addEventListener("click", keySeven);
+key8.addEventListener("click", keyEight);
+key9.addEventListener("click", keyNine);
+key0.addEventListener("click", keyZero);
+keyFloat.addEventListener("click", keyFloatFunc);
+keyAdd.addEventListener("click", keyAddFunc);
+keySub.addEventListener("click", keySubFunc);
+keyMul.addEventListener("click", keyMulFunc);
+keyDiv.addEventListener("click", keyDivFunc);
+keyClear.addEventListener("click", keyClearFunc);
+keyEquals.addEventListener("click", keyEqualsFunc);
+
+document.addEventListener("keydown", (e) => {
+    switch(e.key){
+        case "1":
+            keyOne();
+            break;
+        case "2":
+            keyTwo();
+            break;
+        case "3":
+            keyThree();
+            break;
+        case "4":
+            keyFour();
+            break;
+        case "5":
+            keyFive();
+            break;
+        case "6":
+            keySix();
+            break;
+        case "7":
+            keySeven();
+            break;
+        case "8":
+            keyEight();
+            break;
+        case "9":
+            keyNine();
+            break;
+        case "0":
+            keyZero();
+            break;
+        case "+":
+            keyAddFunc();
+            break;
+        case "-":
+            keySubFunc();
+            break;
+        case "*":
+            keyMulFunc();
+            break;
+        case "/":
+            keyDivFunc();
+            break;
+        case "Enter":
+            keyEqualsFunc();
+            break;
+        case ".":
+            keyFloatFunc();
+            break;
+        case "Escape":
+            keyClearFunc();
+            break;
+        case "Backspace":
+            keyBackspaceFunc();
+            break;
+        default:
+            break;
+    }
+})
+
+function keyOne(){
     if(display.textContent.length>=15 && display.textContent !== "Universe crashed!"){
         display.textContent = "Too many numbers!";
     } else {
@@ -39,9 +118,9 @@ key1.addEventListener("click", () => {
             lastInput = "key";
         }
     }
-});
+}
 
-key2.addEventListener("click", () => {
+function keyTwo(){
     if(display.textContent.length>=15 && display.textContent !== "Universe crashed!"){
         display.textContent = "Too many numbers!";
     } else {
@@ -55,9 +134,9 @@ key2.addEventListener("click", () => {
         display.textContent += "2";
         lastInput = "key";
     }
-});
+}
 
-key3.addEventListener("click", () => {
+function keyThree(){
     if(display.textContent.length>=15 && display.textContent !== "Universe crashed!"){
         display.textContent = "Too many numbers!";
     } else {
@@ -71,9 +150,9 @@ key3.addEventListener("click", () => {
         display.textContent += "3";
         lastInput = "key";
     }
-});
+}
 
-key4.addEventListener("click", () => {
+function keyFour(){
     if(display.textContent.length>=15 && display.textContent !== "Universe crashed!"){
         display.textContent = "Too many numbers!";
     } else {
@@ -87,9 +166,9 @@ key4.addEventListener("click", () => {
         display.textContent += "4";
         lastInput = "key";
     }
-});
+}
 
-key5.addEventListener("click", () => {
+function keyFive(){
     if(display.textContent.length>=15 && display.textContent !== "Universe crashed!"){
         display.textContent = "Too many numbers!";
     } else {
@@ -103,9 +182,9 @@ key5.addEventListener("click", () => {
         display.textContent += "5";
         lastInput = "key";
     }
-});
+}
 
-key6.addEventListener("click", () => {
+function keySix(){
     if(display.textContent.length>=15 && display.textContent !== "Universe crashed!"){
         display.textContent = "Too many numbers!";
     } else {
@@ -119,9 +198,9 @@ key6.addEventListener("click", () => {
         display.textContent += "6";
         lastInput = "key";
     }
-});
+}
 
-key7.addEventListener("click", () => {
+function keySeven(){
     if(display.textContent.length>=15 && display.textContent !== "Universe crashed!"){
         display.textContent = "Too many numbers!";
     } else {
@@ -135,9 +214,9 @@ key7.addEventListener("click", () => {
         display.textContent += "7";
         lastInput = "key";
     }
-});
+}
 
-key8.addEventListener("click", () => {
+function keyEight(){
     if(display.textContent.length>=15 && display.textContent !== "Universe crashed!"){
         display.textContent = "Too many numbers!";
     } else {
@@ -151,9 +230,9 @@ key8.addEventListener("click", () => {
         display.textContent += "8";
         lastInput = "key";
     }
-});
+}
 
-key9.addEventListener("click", () => {
+function keyNine(){
     if(display.textContent.length>=15 && display.textContent !== "Universe crashed!"){
         display.textContent = "Too many numbers!";
     } else {
@@ -167,9 +246,9 @@ key9.addEventListener("click", () => {
         display.textContent += "9";
         lastInput = "key";
     }
-});
+}
 
-key0.addEventListener("click", () => {
+function keyZero(){
     if(display.textContent.length>=15 && display.textContent !== "Universe crashed!"){
         display.textContent = "Too many numbers!";
     } else {
@@ -183,9 +262,9 @@ key0.addEventListener("click", () => {
         display.textContent += "0";
         lastInput = "key";
     }
-});
+}
 
-keyFloat.addEventListener("click", () => {
+function keyFloatFunc(){
     if(display.textContent.length>=15 && display.textContent !== "Universe crashed!"){
         display.textContent = "Too many numbers!";
     } else if(display.textContent.includes(".") && lastInput !== "equals"){
@@ -203,45 +282,45 @@ keyFloat.addEventListener("click", () => {
         }
         lastInput = "float";
     }
-});
+}
 
-keyAdd.addEventListener("click", () => {
+function keyAddFunc(){
     firstNum = parseFloat(display.textContent);
     display.textContent = "";
     operator = "add";
     lastInput = "operator";
-});
+}
 
-keySub.addEventListener("click", () => {
+function keySubFunc(){
     firstNum = parseFloat(display.textContent);
     display.textContent = "";
     operator = "subtract";
     lastInput = "operator";
-});
+}
 
-keyMul.addEventListener("click", () => {
+function keyMulFunc(){
     firstNum = parseFloat(display.textContent);
     display.textContent = "";
     operator = "multiply";
     lastInput = "operator";
-});
+}
 
-keyDiv.addEventListener("click", () => {
+function keyDivFunc(){
     firstNum = parseFloat(display.textContent);
     display.textContent = "";
     operator = "divide";
     lastInput = "operator";
-});
+}
 
-keyClear.addEventListener("click", () => {
+function keyClearFunc(){
     firstNum = 0;
     secondNum = 0;
     display.textContent = "";
     operator = "";
     lastInput = "";
-});
+}
 
-keyEquals.addEventListener("click", () => {
+function keyEqualsFunc(){
     if (operator !== ""){
         if(lastInput !== "equals"){
             secondNum = display.textContent;
@@ -253,13 +332,23 @@ keyEquals.addEventListener("click", () => {
             lastInput = "equals";
         }
     }
-});
+}
 
-
-
-
-
-
+function keyBackspaceFunc(){
+    if(display.textContent.length>=15 && display.textContent !== "Universe crashed!"){
+        display.textContent = "Too many numbers!";
+    } else {
+        if(lastInput === "equals"){
+            firstNum = 0;
+            secondNum = 0;
+            display.textContent = "";
+            operator = "";
+            lastInput = "";
+        }
+        display.textContent = display.textContent.slice(0, -1);
+        lastInput = "key";
+    }
+}
 
 function add(num1, num2){
     return num1 + num2;
