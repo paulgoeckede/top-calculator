@@ -107,20 +107,20 @@ body {
   cursor: pointer;
 }
 
-#keyEquals {
+#Enter {
   background-color: #bf4e30;
 }
 
-#keyClear {
+#Escape {
   height: 30px;
   width: 30%;
 }
 
-#keyAdd,
-#keySub,
-#keyMul,
-#keyDiv,
-#keyFloat {
+.keyAdd,
+.keySub,
+.keyMul,
+.keyDiv,
+.keyFloat {
   background-color: #57886c;
 }
 
